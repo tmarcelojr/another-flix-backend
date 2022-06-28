@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
         // Checking if token is valid and not expired
         jwt.verify(token, process.env.SECRET, (err, decoded) => {
-            console.log(decoded)
+            // console.log(decoded)
             req.user = err ? null : decoded.user
 
             // Expiration

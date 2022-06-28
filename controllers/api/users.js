@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const create = async (req, res) => {
     try {
         const createdUser = await User.create(req.body)
-        res.status(200).json(createdUser)
+        res.status(200).json(createJWT(createdUser))
     } catch(e) {
         res.status(400).json({msg: e.message})
     }

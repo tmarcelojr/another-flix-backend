@@ -12,6 +12,7 @@ const index = async (req, res) => {
 
 // Create a movie
 const create = async (req, res) => {
+    // console.log(req.body)
     try {
         const createdMovie = await Movie.create(req.body)
         res.status(200).json(createdMovie)
@@ -23,6 +24,8 @@ const create = async (req, res) => {
 // Update a movie
 const update = async (req, res) => {
     try {
+        console.log('req', req.params.id)
+        console.log('red.body', req.body)
         const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.status(200).json(updatedMovie)
     } catch(e) {
